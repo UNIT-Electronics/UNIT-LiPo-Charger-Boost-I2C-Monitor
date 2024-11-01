@@ -49,12 +49,12 @@ La siguiente tabla detalla los pines de conexión principales del módulo **UNIT
 
 ## Especificaciones Adicionales
 
-- **Curvas de Caracterización**: Incluye las curvas de potencia de salida del step-up MT3608 para un voltaje de batería de 3.4V y 3.5V, mostrando el comportamiento de potencia en función del voltaje de salida. La eficiencia del step-up varía según el voltaje de entrada; para voltajes más bajos, la potencia máxima puede disminuir, mientras que para voltajes cercanos a 5V, la potencia de salida puede oscilar entre 2W y 3W.
+- **Curvas de Caracterización**: Incluye las curvas de potencia de salida del step-up MT3608 para un voltaje de batería de 3.4V y 3.5V, mostrando cómo varía la potencia en función del voltaje de salida. La eficiencia del step-up depende del voltaje de entrada; a voltajes elevados próximos a 27V, la potencia máxima tiende a reducirse alrededor de 2-3W, mientras que para voltajes cercanos a 5V, la potencia de salida se estabiliza en aproximadamente 4W.
 - **Advertencia de Uso**: El módulo debe operarse preferiblemente con una batería LiPo de entre 3.7V a 4.2V y con una entrada VIN de USB Tipo C a 5V o mediante los pads VIN, con un máximo de 6V.
 
 ## Carpeta de Modelos Fritzing
 
-Este repositorio incluye una carpeta con los modelos de Fritzing del módulo para facilitar su integración en diagramas y documentación técnica de proyectos.
+Este repositorio incluye una carpeta con los modelos de [Fritzing](Docs/Fritzing/UE0001-UNITBatteryChargerI2C.fzpz) del módulo para facilitar su integración en diagramas y documentación técnica de proyectos.
 
 ---
 
@@ -84,58 +84,11 @@ A continuación se presenta un ejemplo de cómo comenzar a usar el monitor MAX17
 2. **Instalación de la Biblioteca**:
    - Descarga la biblioteca MAX1704X desde el repositorio y asegúrate de incluirla en tu entorno de trabajo.
 
-3. **Código Ejemplo**:
-   ```python
-   from max17048 import MAX17048
-   from machine import I2C, Pin
+## Notas de Uso
+**Selección de Corriente de Carga**: Utiliza los pads de la parte posterior para configurar la corriente de carga:
 
-   i2c = I2C(1, scl=Pin(22), sda=Pin(21))  # Ajusta los pines según tu microcontrolador
-   battery_monitor = MAX17048(i2c)
+    - 200 mA: Ideal para cargas lentas, prolongando la vida de la batería.
+    - 1 A: Carga rápida, recomendada para situaciones de carga de alta velocidad.
+**Compatibilidad Qwiic**: Para usar el conector Qwiic/Stemma, asegúrate de cerrar el jumper del pad en la parte inferior si deseas alimentar los módulos conectados mediante el mismo bus de voltaje del sistema.
 
-   # Leer el voltaje de la batería
-   voltage = battery_monitor.get_voltage()
-   print("Voltaje de la batería:", voltage, "V")
-
-   # Leer el porcentaje de carga
-   charge = battery_monitor.get_charge()
-   print("Carga de la batería:", charge, "%")
-   ```
-
-### Ejemplo en C++ (Arduino IDE)
-
-1. **Instalación de la Biblioteca**:
-   - Descarga la biblioteca MAX1704X e instálala en el Arduino IDE desde [Repositorio MAX1704X](https://github.com/UNIT-Electronics/MAX1704X_lib).
-
-2. **Código Ejemplo**:
-   ```cpp
-   #include <Wire.h>
-   #include <MAX17048.h>
-
-   MAX17048 batteryMonitor;
-
-   void setup() {
-       Serial.begin(9600);
-       Wire.begin();
-
-       // Inicializar el monitor de batería
-       batteryMonitor.begin();
-   }
-
-   void loop() {
-       // Leer el voltaje de la batería
-       float voltage = batteryMonitor.getVoltage();
-       Serial.print("Voltaje de la batería: ");
-       Serial.print(voltage);
-       Serial.println(" V");
-
-       // Leer el porcentaje de carga
-       int charge = batteryMonitor.getCharge();
-       Serial.print("Carga de la batería: ");
-       Serial.print(charge);
-       Serial.println(" %");
-
-       delay(1000);
-   }
-   ```
-
-Estos ejemplos ofrecen un punto de partida para implementar el monitoreo de batería con el MAX17048 en tus proyectos, tanto en MicroPython como en el entorno de Arduino IDE.
+Con el UNIT LiPo Charger Boost & I2C Monitor, puedes monitorear el estado de tu batería, alimentar módulos Qwiic o periféricos a través del bus del sistema y obtener una potencia de salida estable en aplicaciones donde se requiera voltaje elevado.
