@@ -3,9 +3,9 @@
 El **UNIT LiPo Charger Boost & I2C Monitor** es un módulo avanzado de carga y monitoreo para baterías LiPo de una celda (3.7V a 4.2V) que integra un cargador TP4056, un elevador de voltaje MT3608 con salida limitada a 27V, y un monitor de batería MAX17048 a través de I2C. Este módulo es ideal para aplicaciones donde se requiere carga eficiente y monitoreo de la batería en tiempo real.
 
 - **Carga de Batería LiPo**: Con dos opciones de corriente de carga seleccionables mediante pads (200 mA o 1 A).
-- **Step-up MT3608**: Eleva el voltaje de la batería o de una entrada USB Tipo C hasta 27V, con una potencia nominal de salida de 4W.
+- **Step-up MT3608**: Eleva el voltaje de la batería o de una entrada USB Tipo C hasta 27V. Con una potencia nominal de salida máxima de 4W en función del voltaje de entrada.
 - **Monitoreo de Batería**: El MAX17048 permite conocer el nivel de carga y voltaje de la batería mediante I2C.
-- **Compatibilidad Qwiic/Stemma**: Conector JST con opción de energizar módulos Qwiic mediante el bus de voltaje del sistema.
+- **Compatibilidad Qwiic/Stemma**: Conector JST con opción de energizar módulos Qwiic mediante el bus de voltaje del sistema (VSYS -> VBAT-6V max).
 
 ## Características del Módulo
 
@@ -15,9 +15,12 @@ El **UNIT LiPo Charger Boost & I2C Monitor** es un módulo avanzado de carga y m
 - **Conectores**:
   - JST de 2.0 mm para la batería LiPo.
   - Header de 2 pines (2.54 mm) para extraer el voltaje de batería.
+  - Header de 2 pines (2.54 mm) para extraer el voltaje de salida del Step UP MT3608.
   - Header de 5 pines para el monitor I2C de batería (MAX17048): `SDA`, `SCL`, `GND`, `QST` (reset), y `ALT` (alert).
 - **Selección de corriente de carga**: Pad en la parte posterior para elegir entre carga de 200 mA o 1 A.
-- **Compatibilidad Qwiic/Stemma**: Pad tipo jumper en la parte inferior para conectar el voltaje del sistema al conector Qwiic. *Advertencia: se recomienda una regulación adicional a 3.3V para cumplir con el estándar Qwiic*.
+- **Compatibilidad con salida Qwiic/Stemma**: Este módulo está preparado para conectar las líneas de I2C (SDA y SCL) y tierra (GND) al conector Qwiic/Stemma, asegurando la compatibilidad en la comunicación con dispositivos que usan este estándar. Además, incluye un pad tipo jumper en la parte inferior que, al cerrarse, permite enviar el voltaje del sistema (VSYS) al conector Qwiic/Stemma para alimentar los módulos conectados a través de este bus. VSYS puede variar entre el voltaje de batería (3.7V) hasta un máximo de 6V (Vin).
+
+Advertencia: debido a que el estándar Qwiic opera a 3.3V, se recomienda utilizar un regulador de voltaje posterior a la salida JST del módulo para reducir VSYS a 3.3V y proteger los dispositivos Qwiic conectados.
 
 ---
 
@@ -89,6 +92,7 @@ A continuación se presenta un ejemplo de cómo comenzar a usar el monitor MAX17
 
     - 200 mA: Ideal para cargas lentas, prolongando la vida de la batería.
     - 1 A: Carga rápida, recomendada para situaciones de carga de alta velocidad.
-**Compatibilidad Qwiic**: Para usar el conector Qwiic/Stemma, asegúrate de cerrar el jumper del pad en la parte inferior si deseas alimentar los módulos conectados mediante el mismo bus de voltaje del sistema.
+
+> **Importante**: El estándar Qwiic funciona a 3.3V, por lo que, al usar VSYS como fuente de alimentación, es aconsejable añadir un regulador de voltaje después de la salida JST del módulo para reducir VSYS a 3.3V y evitar posibles daños a los dispositivos Qwiic conectados.
 
 Con el UNIT LiPo Charger Boost & I2C Monitor, puedes monitorear el estado de tu batería, alimentar módulos Qwiic o periféricos a través del bus del sistema y obtener una potencia de salida estable en aplicaciones donde se requiera voltaje elevado.
