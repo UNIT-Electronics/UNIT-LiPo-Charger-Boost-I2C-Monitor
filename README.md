@@ -15,7 +15,7 @@ El **UNIT LiPo Charger Boost & I2C Monitor** es un módulo avanzado de carga y m
 - **Conectores**:
   - JST de 2.0 mm para la batería LiPo.
   - Header de 2 pines (2.54 mm) para extraer el voltaje de batería.
-  - Header de 2 pines (2.54 mm) para extraer el voltaje de salida del Step UP MT3608.
+  - Header de 2 pines (2.54 mm) para extraer el voltaje de salida del step-up MT3608.
   - Header de 5 pines para el monitor I2C de batería (MAX17048): `SDA`, `SCL`, `GND`, `QST` (reset), y `ALT` (alert).
 - **Selección de corriente de carga**: Pad en la parte posterior para elegir entre carga de 200 mA o 1 A.
 - **Compatibilidad con salida Qwiic/Stemma**: Este módulo está preparado para conectar las líneas de I2C (SDA y SCL) y tierra (GND) al conector Qwiic/Stemma, asegurando la compatibilidad en la comunicación con dispositivos que usan este estándar. Además, incluye un pad tipo jumper en la parte inferior que, al cerrarse, permite enviar el voltaje del sistema (VSYS) al conector Qwiic/Stemma para alimentar los módulos conectados a través de este bus. VSYS puede variar entre el voltaje de batería (3.7V) hasta un máximo de 6V (Vin).
@@ -59,6 +59,10 @@ La siguiente tabla detalla los pines de conexión principales del módulo **UNIT
 
 Este repositorio incluye una carpeta con los modelos de [Fritzing](Docs/Fritzing/UE0001-UNITBatteryChargerI2C.fzpz) del módulo para facilitar su integración en diagramas y documentación técnica de proyectos.
 
+
+
+## Links de compra
+Puedes adquirir el módulo UNIT LiPo Charger Boost & I2C Monitor directamente en [UNIT Electronics](www.electronics.com).
 ---
 
 ## Documentación
@@ -87,6 +91,24 @@ A continuación se presenta un ejemplo de cómo comenzar a usar el monitor MAX17
 2. **Instalación de la Biblioteca**:
    - Descarga la biblioteca MAX1704X desde el repositorio y asegúrate de incluirla en tu entorno de trabajo.
 
+3. **Código Ejemplo**:
+
+```python
+Copiar código
+from max17048 import MAX17048
+from machine import I2C, Pin
+
+i2c = I2C(1, scl=Pin(22), sda=Pin(21))  # Ajusta los pines según tu microcontrolador
+battery_monitor = MAX17048(i2c)
+
+# Leer el voltaje de la batería
+voltage = battery_monitor.get_voltage()
+print("Voltaje de la batería:", voltage, "V")
+
+# Leer el porcentaje de carga
+charge = battery_monitor.get_charge()
+print("Carga de la batería:", charge, "%")
+```
 ## Notas de Uso
 **Selección de Corriente de Carga**: Utiliza los pads de la parte posterior para configurar la corriente de carga:
 
@@ -96,3 +118,5 @@ A continuación se presenta un ejemplo de cómo comenzar a usar el monitor MAX17
 > **Importante**: El estándar Qwiic funciona a 3.3V, por lo que, al usar VSYS como fuente de alimentación, es aconsejable añadir un regulador de voltaje después de la salida JST del módulo para reducir VSYS a 3.3V y evitar posibles daños a los dispositivos Qwiic conectados.
 
 Con el UNIT LiPo Charger Boost & I2C Monitor, puedes monitorear el estado de tu batería, alimentar módulos Qwiic o periféricos a través del bus del sistema y obtener una potencia de salida estable en aplicaciones donde se requiera voltaje elevado.
+
+¡Comienza tu proyecto de carga de baterías y monitoreo con el UNIT LiPo Charger Boost & I2C Monitor hoy mismo!
