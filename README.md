@@ -63,6 +63,7 @@ Este repositorio incluye una carpeta con los modelos de [Fritzing](Docs/Fritzing
 
 ## Links de compra
 Puedes adquirir el módulo UNIT LiPo Charger Boost & I2C Monitor directamente en [UNIT Electronics](www.electronics.com).
+
 ---
 
 ## Documentación
