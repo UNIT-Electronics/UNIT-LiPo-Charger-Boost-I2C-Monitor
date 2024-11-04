@@ -100,7 +100,7 @@ A continuación se presenta un ejemplo de cómo comenzar a usar el monitor MAX17
 3. **Código Ejemplo**:
 
 ```python
-Copiar código
+
 from max17048 import MAX17048
 from machine import I2C, Pin
 
