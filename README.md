@@ -55,6 +55,10 @@ La siguiente tabla detalla los pines de conexión principales del módulo **UNIT
 - **Curvas de Caracterización**: Incluye las curvas de potencia de salida del step-up MT3608 para un voltaje de batería de 3.4V y 3.5V, mostrando cómo varía la potencia en función del voltaje de salida. La eficiencia del step-up depende del voltaje de entrada; a voltajes elevados próximos a 27V, la potencia máxima tiende a reducirse alrededor de 2-3W, mientras que para voltajes cercanos a 5V, la potencia de salida se estabiliza en aproximadamente 4W.
 - **Advertencia de Uso**: El módulo debe operarse preferiblemente con una batería LiPo de entre 3.7V a 4.2V y con una entrada VIN de USB Tipo C a 5V o mediante los pads VIN, con un máximo de 6V.
 
+[![Potencia de salida vs Tensión de salida](Docs/Curvas/PvsV.png)
+
+[![Corriente de salida vs Tensión de salida](Docs/Curvas/IvsV.png)
+
 ## Carpeta de Modelos Fritzing
 
 Este repositorio incluye una carpeta con los modelos de [Fritzing](Docs/Fritzing/UE0001-UNITBatteryChargerI2C.fzpz) del módulo para facilitar su integración en diagramas y documentación técnica de proyectos.
