@@ -1,6 +1,6 @@
 # UNIT LiPo Charger Boost & I2C Monitor
 
-El **UNIT LiPo Charger Boost & I2C Monitor** es un módulo avanzado de carga y monitoreo para baterías LiPo de una celda (3.7V a 4.2V) que integra un cargador TP4056, un elevador de voltaje MT3608 con salida limitada a 27V, y un monitor de batería MAX17048 a través de I2C. Este módulo es ideal para aplicaciones donde se requiere carga eficiente y monitoreo de la batería en tiempo real.
+**UNIT LiPo Charger Boost & I2C Monitor** es un módulo avanzado de carga y monitoreo para baterías LiPo de una celda (3.7V a 4.2V) que integra un cargador TP4056, un elevador de voltaje MT3608 con salida limitada a 27V, y un monitor de batería MAX17048 a través de I2C. Este módulo es ideal para aplicaciones donde se requiere carga eficiente y monitoreo de la batería en tiempo real.
 
 - **Carga de Batería LiPo**: Con dos opciones de corriente de carga seleccionables mediante pads (200 mA o 1 A).
 - **Step-up MT3608**: Eleva el voltaje de la batería o de una entrada USB Tipo C hasta 27V. Con una potencia nominal de salida máxima de 4W en función del voltaje de entrada.
@@ -52,8 +52,9 @@ La siguiente tabla detalla los pines de conexión principales del módulo **UNIT
 
 ## Especificaciones Adicionales
 
-- **Curvas de Caracterización**: Curvas de potencia de salida del step-up MT3608 para un voltaje de batería de 3.4V y 3.5V, mostrando cómo varía la potencia en función del voltaje de salida. La eficiencia del step-up depende del voltaje de entrada; a voltajes elevados próximos a 27V, la potencia máxima tiende a reducirse alrededor de 2-3W, mientras que para voltajes cercanos a 5V, la potencia de salida se estabiliza en aproximadamente 4W.
-- **Advertencia de Uso**: El módulo debe operarse preferiblemente con una batería LiPo de entre 3.7V a 4.2V y con una entrada VIN de USB Tipo C a 5V o mediante los pads VIN, con un máximo de 6V.
+- **Curvas de Caracterización**: Las curvas de potencia y corriente de salida del step-up MT3608 para niveles de batería de 3.4V y 3.5V, muestran la variación de la potencia y corriente en función del voltaje de salida con una batería LiPo. La eficiencia del step-up depende del voltaje de entrada: para voltajes de salida elevados, cercanos a 27V, la potencia máxima se reduce a aproximadamente 2-3W; mientras que, para voltajes de salida alrededor de 5V, la potencia de salida se estabiliza en torno a 4W.
+
+**Advertencia de Uso***: Es preferible operar el módulo con una batería LiPo de entre 3.7V y 4.2V, o con una entrada VIN de 5V mediante USB Tipo C o los pads VIN, manteniendo un máximo de 6V.
 
 ![Potencia de salida vs Tensión de salida](Docs/Curvas/PvsV.png)
 
