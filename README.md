@@ -29,10 +29,10 @@ Advertencia: debido a que el estándar Qwiic opera a 3.3V, se recomienda utiliza
 A continuación se muestran los diagramas de pinout del módulo para la parte frontal y posterior. Haz clic en cualquiera de las imágenes para más detalles en [UNIT Electronics](https://www.uelectronics.com).
 
 ### Pinout Frontal
-[![Pinout Frontal](Docs/Pinouts/PinoutTop_ES.jpg)](https://www.uelectronics.com)
+[![Pinout Frontal](recources/Pinouts/PinoutTop_ES.jpg)](https://www.uelectronics.com)
 
 ### Pinout Posterior
-[![Pinout Posterior](Docs/Pinouts/PinoutBottom_ES.jpg)](https://www.uelectronics.com)
+[![Pinout Posterior](recources/Pinouts/PinoutBottom_ES.jpg)](https://www.uelectronics.com)
 
 ---
 
@@ -56,13 +56,13 @@ La siguiente tabla detalla los pines de conexión principales del módulo **UNIT
 
 **Advertencia de Uso***: Es preferible operar el módulo con una batería LiPo de entre 3.7V y 4.2V, o con una entrada VIN de 5V mediante USB Tipo C o los pads VIN, manteniendo un máximo de 6V.
 
-![Potencia de salida vs Tensión de salida](Docs/Curvas/PvsV.png)
+![Potencia de salida vs Tensión de salida](recources/Curvas/PvsV.png)
 
-![Corriente de salida vs Tensión de salida](Docs/Curvas/IvsV.png)
+![Corriente de salida vs Tensión de salida](recources/Curvas/IvsV.png)
 
 ## Carpeta de Modelos Fritzing
 
-Este repositorio incluye una carpeta con los modelos de [Fritzing](Docs/Fritzing/UE0001-UNITBatteryChargerI2C.fzpz) del módulo para facilitar su integración en diagramas y documentación técnica de proyectos.
+Este repositorio incluye una carpeta con los modelos de [Fritzing](recources/Fritzing/UE0001-UNITBatteryChargerI2C.fzpz) del módulo para facilitar su integración en diagramas y documentación técnica de proyectos.
 
 
 
