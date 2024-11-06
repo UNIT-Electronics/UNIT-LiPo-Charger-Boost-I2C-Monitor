@@ -349,14 +349,15 @@ document.write(`
 </div>
 <section id="method-of-use">
 <h2>Method of Use<a class="headerlink" href="#method-of-use" title="Link to this heading">#</a></h2>
-<p>To set up, download the library and save it onto the microcontroller. When using Thonny, ensure it is saved with the name <cite>max1704x.py</cite>.</p>
-<ul class="simple">
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The <cite>max1704x.py</cite> library is used to interact with the MAX1704X fuel gauge. To set up, download the library and save it onto the microcontroller. When using Thonny, ensure it is saved with the name <cite>max1704x.py</cite>.</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><a class="reference external" href="https://github.com/UNIT-Electronics/MAX1704X_lib/blob/main/Software/MicroPython/example/max1704x.py">Library</a></p></li>
 </ul>
-<p>The <cite>Test.py</cite> code outlines the primary usage and any special instructions. It’s essential to execute this code on the RP2040 board.</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/UNIT-Electronics/MAX1704X_lib/blob/main/Software/MicroPython/example/Test.py">Test</a></p></li>
-</ul>
+</div></blockquote>
+</div>
 <p>Quick test: Copy this code and run it using Thonny:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">max1704x</span> <span class="kn">import</span> <span class="n">max1704x</span>
 
@@ -367,7 +368,54 @@ document.write(`
 <span class="n">mi_sensor</span><span class="o">.</span><span class="n">quickStart</span><span class="p">()</span>
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>This version is adaptable to other boards, with a focus on close implementation.</p>
+</div>
+<p>The <cite>Test.py</cite> code outlines the primary usage and any special instructions. It’s essential to execute this code on the RP2040 board.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/UNIT-Electronics/MAX1704X_lib/blob/main/Software/MicroPython/example/Test.py">Test</a></p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">max1704x</span> <span class="kn">import</span> <span class="n">max1704x</span>
+
+<span class="c1"># Initialize max17043/max17048 with the pins</span>
+
+<span class="c1"># ESP32</span>
+<span class="c1"># _id=-1</span>
+<span class="c1"># SDA=21</span>
+<span class="c1"># SCK=22</span>
+
+<span class="c1"># RP2040</span>
+<span class="n">_id</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">SDA</span><span class="o">=</span><span class="mi">12</span>
+<span class="n">SCK</span><span class="o">=</span><span class="mi">13</span>
+<span class="n">my_sensor</span> <span class="o">=</span> <span class="n">max1704x</span><span class="p">(</span><span class="n">_id</span><span class="p">,</span> <span class="n">sda_pin</span><span class="o">=</span><span class="n">SDA</span><span class="p">,</span> <span class="n">scl_pin</span><span class="o">=</span><span class="n">SCK</span><span class="p">)</span>
+
+<span class="c1"># Get the I2C address of the sensor</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I2C address of the sensor:&quot;</span><span class="p">,</span> <span class="n">my_sensor</span><span class="o">.</span><span class="n">address</span><span class="p">())</span>
+
+<span class="c1"># Get the version of the max1704x module</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Module version:&quot;</span><span class="p">,</span> <span class="n">my_sensor</span><span class="o">.</span><span class="n">getVersion</span><span class="p">())</span>
+
+<span class="c1"># Get the remaining voltage in the cell</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Remaining cell voltage (V):&quot;</span><span class="p">,</span> <span class="n">my_sensor</span><span class="o">.</span><span class="n">getVCell</span><span class="p">())</span>
+
+<span class="c1"># Get the state of charge</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;State of charge (%):&quot;</span><span class="p">,</span> <span class="n">my_sensor</span><span class="o">.</span><span class="n">getSoc</span><span class="p">())</span>
+
+<span class="c1"># Get the compensation value</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Compensation value:&quot;</span><span class="p">,</span> <span class="n">my_sensor</span><span class="o">.</span><span class="n">getCompensateValue</span><span class="p">())</span>
+
+<span class="c1"># Get the alert threshold</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Alert threshold (%):&quot;</span><span class="p">,</span> <span class="n">my_sensor</span><span class="o">.</span><span class="n">getAlertThreshold</span><span class="p">())</span>
+
+<span class="c1"># Check if the sensor is in alert</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is in alert?:&quot;</span><span class="p">,</span> <span class="s2">&quot;Yes&quot;</span> <span class="k">if</span> <span class="n">my_sensor</span><span class="o">.</span><span class="n">inAlert</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;No&quot;</span><span class="p">)</span>
+
+<span class="c1"># Perform a quick start reset of the sensor</span>
+<span class="n">my_sensor</span><span class="o">.</span><span class="n">quickStart</span><span class="p">()</span>
+</pre></div>
+</div>
 </section>
 <section id="max1704x-installation-guide-using-mip-library">
 <h2>MAX1704X Installation Guide Using MIP Library<a class="headerlink" href="#max1704x-installation-guide-using-mip-library" title="Link to this heading">#</a></h2>

@@ -339,10 +339,10 @@ document.write(`
                   
   <section id="additional-details">
 <h1>Additional details<a class="headerlink" href="#additional-details" title="Link to this heading">#</a></h1>
-<p>The power supply output of the MT3608 step-up is illustrated for a battery voltage of 3.4V and 3.5V, illustrating the impact of output voltage on power. The efficiency of the step-up is contingent upon the input voltage. At high voltages near 27V, the maximal power tends to diminish by approximately 2-3W, whereas the output power stabilizes at approximately 4W for voltages near 5V.</p>
+<p>The curves of power and output current of the MT3608 step-up converter for battery levels of 3.4V, 3.5V, and 3.7V show the variation of power and current as a function of the output voltage with a single-cell LiPo battery. The efficiency of the step-up depends on the input voltage: at high output voltages, close to 27V and with a battery voltage of approximately 3.4V, the maximum power is reduced to around 2-3W. However, for output voltages close to 5V, the output power stabilizes around 4W, even with a battery voltage of 3.4V. If the battery voltage is kept above 3.7V, the efficiency of the module increases, maintaining an average output power of 4W, as observed in the power and current curves.</p>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
-<p>The module should preferably be operated with a LiPo battery between 3.7V to 4.2V and with a USB Type C input VIN at 5V or through the VIN pads, with a maximum of 6V.</p>
+<p>It is recommended to operate the module with a LiPo battery between 3.7V and 4.2V to maximize efficiency and output power. Alternatively, the module can also operate with a VIN input of 5V through the Type C USB port or the VIN input terminals, with a maximum limit of 6V.</p>
 </div>
 <figure class="align-center" id="id2">
 <a class="reference internal image-reference" href="_images/PvsV.png"><img alt="Curve" src="_images/PvsV.png" style="width: 80%;" /></a>
@@ -359,7 +359,7 @@ document.write(`
 </section>
 <section id="fritzing-models">
 <h1>Fritzing models<a class="headerlink" href="#fritzing-models" title="Link to this heading">#</a></h1>
-<p>This repository includes a folder with the <a class="reference external" href="https://github.com/UNIT-Electronics/UNIT-LiPo-Charger-Boost-I2C-Monitor/blob/main/Docs/Fritzing/UE0001-UNITBatteryChargerI2C.fzpz">Fritzing models</a> of the module to facilitate its integration into diagrams and technical documentation of projects.</p>
+<p>This repository includes a folder with the <a class="reference external" href="https://github.com/UNIT-Electronics/UNIT-LiPo-Charger-Boost-I2C-Monitor">Fritzing models</a> of the module to facilitate its integration into diagrams and technical documentation of projects.</p>
 </section>
 
 
