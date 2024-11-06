@@ -1,4 +1,4 @@
-How generarate report of errors
+How generate report of errors
 ===============================
 This is a guide to generate report of errors.
 
