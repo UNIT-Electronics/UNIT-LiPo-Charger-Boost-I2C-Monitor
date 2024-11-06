@@ -52,9 +52,11 @@ La siguiente tabla detalla los pines de conexión principales del módulo **UNIT
 
 ## Especificaciones Adicionales
 
-- **Curvas de Caracterización**: Las curvas de potencia y corriente de salida del step-up MT3608 para niveles de batería de 3.4V y 3.5V, muestran la variación de la potencia y corriente en función del voltaje de salida con una batería LiPo. La eficiencia del step-up depende del voltaje de entrada: para voltajes de salida elevados, cercanos a 27V, la potencia máxima se reduce a aproximadamente 2-3W; mientras que, para voltajes de salida alrededor de 5V, la potencia de salida se estabiliza en torno a 4W.
+- **Curvas de Caracterización**: Las curvas de potencia y corriente de salida del convertidor step-up MT3608 para niveles de batería de 3.4V, 3.5V y 3.7V muestran la variación de potencia y corriente en función del voltaje de salida con una batería LiPo de una celda. La eficiencia del step-up depende del voltaje de entrada: a voltajes de salida altos, cercanos a 27V y con un voltaje de batería de aproximadamente 3.4V, la potencia máxima se reduce a alrededor de 2-3W. Sin embargo, para voltajes de salida cercanos a 5V, la potencia de salida se estabiliza en torno a 4W, incluso con un voltaje de batería de 3.4V. Si el voltaje de batería se mantiene por encima de 3.7V, la eficiencia del módulo aumenta, manteniendo una potencia de salida promedio de 4W, como se observa en las curvas de potencia y corriente.
 
-**Advertencia de Uso***: Es preferible operar el módulo con una batería LiPo de entre 3.7V y 4.2V, o con una entrada VIN de 5V mediante USB Tipo C o los pads VIN, manteniendo un máximo de 6V.
+**Advertencia de Uso***: Se recomienda operar el módulo con una batería LiPo de entre 3.7V y 4.2V para maximizar la eficiencia y potencia de salida. Alternativamente, el módulo también puede funcionar con una entrada VIN de 5V a través del puerto USB Tipo C o los pads VIN, con un límite máximo de 6V.
+
+
 
 ![Potencia de salida vs Tensión de salida](recources/Curvas/PvsV.png)
 
