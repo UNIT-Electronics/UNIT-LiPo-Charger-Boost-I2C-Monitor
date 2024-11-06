@@ -29,10 +29,10 @@ Advertencia: debido a que el estándar Qwiic opera a 3.3V, se recomienda utiliza
 A continuación se muestran los diagramas de pinout del módulo para la parte frontal y posterior. Haz clic en cualquiera de las imágenes para más detalles en [UNIT Electronics](https://www.uelectronics.com).
 
 ### Pinout Frontal
-[![Pinout Frontal](recources/Pinouts/PinoutTop_ES.jpg)](https://www.uelectronics.com)
+[![Pinout Frontal](resources/Pinouts/PinoutTop_ES.jpg)](https://www.uelectronics.com)
 
 ### Pinout Posterior
-[![Pinout Posterior](recources/Pinouts/PinoutBottom_ES.jpg)](https://www.uelectronics.com)
+[![Pinout Posterior](resources/Pinouts/PinoutBottom_ES.jpg)](https://www.uelectronics.com)
 
 ---
 
@@ -58,13 +58,13 @@ La siguiente tabla detalla los pines de conexión principales del módulo **UNIT
 
 
 
-![Potencia de salida vs Tensión de salida](recources/Curvas/PvsV.png)
+![Potencia de salida vs Tensión de salida](resources/Curvas/PvsV.png)
 
-![Corriente de salida vs Tensión de salida](recources/Curvas/IvsV.png)
+![Corriente de salida vs Tensión de salida](resources/Curvas/IvsV.png)
 
 ## Carpeta de Modelos Fritzing
 
-Este repositorio incluye una carpeta con los modelos de [Fritzing](recources/Fritzing/UE0001-UNITBatteryChargerI2C.fzpz) del módulo para facilitar su integración en diagramas y documentación técnica de proyectos.
+Este repositorio incluye una carpeta con los modelos de [Fritzing](resources/Fritzing/UE0001-UNITBatteryChargerI2C.fzpz) del módulo para facilitar su integración en diagramas y documentación técnica de proyectos.
 
 
 
@@ -78,6 +78,8 @@ Puedes adquirir el módulo UNIT LiPo Charger Boost & I2C Monitor directamente en
 - **Biblioteca MAX1704X**: Este repositorio contiene una biblioteca para el control del MAX17048 usando Arduino IDE y MicroPython. Con esta biblioteca, puedes obtener información sobre el voltaje de la batería, el porcentaje de carga y el estado de descarga.
 
   [Repositorio MAX1704X](https://github.com/UNIT-Electronics/MAX1704X_lib)
+  
+- **Documentación Técnica**: Encuentra más detalles sobre el módulo en la [documentación técnica](https://unit-electronics.github.io/UNIT-LiPo-Charger-Boost-I2C-Monitor/).
 
   ### Compatibilidad
   - **Arduino IDE**
